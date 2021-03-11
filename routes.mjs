@@ -106,6 +106,8 @@ export default function bindRoutes(app) {
   const ListingsController = initListingsController(db);
   app.get('/listings', ListingsController.index);
   app.get('/listing/:listingId', ListingsController.getListing);
+  // to delete a specific listing
+  app.delete('/listing/:listingId/delete', ListingsController.deleteListing);
   // To get all purchases associated with a listing
   app.get('/listing/:listingId/allPurchases', checkLoggedIn, ListingsController.getAllPurchases);
   app.post('/createListing', checkLoggedIn, ListingsController.create);
